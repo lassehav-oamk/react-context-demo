@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
+import A from './A'
+import React from 'react'
+import { DemoContext } from './Contexts'
 
 function App() {
+
+  const sharedInfo = "Hello world";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DemoContext.Provider value={ { foo: "bar" } }>
+      <div>
+        <h1>React context demo</h1>
+        <A sharedInfo={sharedInfo} />
+      </div>
+    </DemoContext.Provider>
   );
 }
 
